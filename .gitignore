@@ -1,0 +1,26 @@
+# --- Python Compiled Files ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Environment & Sensitive Data ---
+.env
+.flaskenv
+.secrets
+
+# --- Local Databases & Data Folders ---
+# Assuming these are just for your local testing
+*.db
+*.sqlite3
+data/
+
+# --- Logs ---
+logs/
+*.log
+
+# --- IDE & System Files ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

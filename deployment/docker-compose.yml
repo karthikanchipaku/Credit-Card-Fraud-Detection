@@ -1,0 +1,24 @@
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: fraud_backend
+    environment:
+      - PYTHONPATH=/app
+    ports:
+      - "8000:8000"
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000
+    
+  frontend:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: fraud_frontend
+    environment:
+      - PYTHONPATH=/app
+    ports:
+      - "8501:8501"
+    command: streamlit run app/streamlit_app.py --server.address 0.0.0.0
+    depends_on:
+      - backend
