@@ -20,3 +20,6 @@ COPY . .
 
 # Set environment path to root
 ENV PYTHONPATH=/app
+
+# Add this as the last line
+CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

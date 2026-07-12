@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 import io
 from fastapi import APIRouter, HTTPException, Depends, UploadFile, File
@@ -30,12 +31,13 @@ async def predict_fraud(transaction: TransactionInput, db: Session = Depends(get
         
         logging.info(f"API Prediction successful. Result: {status}")
         
-        # 4. --- NEW: Save to Database ---
+        # 4. --- UPDATED: Save to Database ---
         logging.info("Saving prediction to SQLite database...")
         db_record = PredictionRecord(
             amount=transaction.Amount,
             prediction_result=status,
-            is_fraud=is_fraud
+            is_fraud=is_fraud,
+            features=json.dumps(input_data) # <-- NEW: Dump the dict to a string
         )
         db.add(db_record)
         db.commit()

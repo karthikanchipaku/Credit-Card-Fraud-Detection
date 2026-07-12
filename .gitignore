@@ -5,7 +5,6 @@ __pycache__/
 *.pyd
 
 # --- Environment & Sensitive Data ---
-.env
 .flaskenv
 .secrets
 
@@ -13,7 +12,6 @@ __pycache__/
 # Assuming these are just for your local testing
 *.db
 *.sqlite3
-data/
 
 # --- Logs ---
 logs/
@@ -24,3 +22,9 @@ logs/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Local Development
+artifacts/
+mlruns/
+.env
+.venv/

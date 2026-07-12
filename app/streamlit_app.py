@@ -18,10 +18,10 @@ st.title("🛡️ Credit Card Fraud Detection System")
 st.markdown("Enter transaction details below or view recent prediction logs.")
 
 # 'backend' matches the service name in docker-compose.yml
-PREDICT_URL = "http://backend:8000/api/v1/predict"
-HISTORY_URL = "http://backend:8000/api/v1/history"
-BATCH_URL = "http://backend:8000/api/v1/predict_batch"
-# 3. Create Tabs for the UI
+# Change these from 'backend' to 'localhost'
+PREDICT_URL = "http://localhost:8000/api/v1/predict"
+HISTORY_URL = "http://localhost:8000/api/v1/history"
+BATCH_URL = "http://localhost:8000/api/v1/predict_batch"
 tab1, tab2, tab3 = st.tabs(["🔍 Single Prediction", "🗄️ Prediction History", "📁 Batch Prediction"])
 
 with tab1:
